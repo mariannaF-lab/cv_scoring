@@ -1,12 +1,5 @@
-import requests
 from bs4 import BeautifulSoup
-def get_html(url):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
-    }
-    response = requests.get(url, headers=headers)
-    response.raise_for_status()
-    return response
+from safe_fetch import get_html
 def extract_vacancy_data(html):
     soup = BeautifulSoup(html, 'html.parser')
     def safe_text(selector, attrs=None):
